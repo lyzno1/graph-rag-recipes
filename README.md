@@ -108,10 +108,4 @@ uv run graph-rag-recipes
 4. **生成阶段**：引入 Prompt 模板、Memory、批量解释。
 5. **展示阶段**：落地 Streamlit UI、图可视化与录屏 Demo。
 
-## 验证与演示清单
-1. `uv run python scripts/bootstrap_data.py --limit 800 --force-processed`：确保最新结构化数据存在。
-2. 根据是否需要 LLM 真实输出决定是否在 `.env` 中配置 API Key；无 Key 也可演示完整 GraphRAG 流程，只是理由为模板文案。
-3. `uv run python scripts/run_pipeline.py U123`：复现 Project 4 示例（“番茄炒蛋” → “番茄豆腐汤/蛋炒西红柿饭” → 推荐理由）。
-4. 需要图示或报告时，可截图 CLI 输出或记录 `result.summary()`，并说明是否启用了 LLM。
-
 该架构已满足课程项目“project 4: 基于 GraphRAG 的推理”需求，可在此基础上持续扩展能力与表现力。
