@@ -1,4 +1,5 @@
 """准备 HowToCook 数据或示例样本。"""
+
 from __future__ import annotations
 
 import argparse
@@ -9,8 +10,12 @@ from graph_rag_recipes.data_ingest import HowToCookIngestor
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="下载 HowToCook 仓库并生成结构化样本")
-    parser.add_argument("--force-repo", action="store_true", help="删除并重新下载仓库副本")
-    parser.add_argument("--force-processed", action="store_true", help="重新生成 processed JSON")
+    parser.add_argument(
+        "--force-repo", action="store_true", help="删除并重新下载仓库副本"
+    )
+    parser.add_argument(
+        "--force-processed", action="store_true", help="重新生成 processed JSON"
+    )
     parser.add_argument(
         "--limit",
         type=int,
@@ -43,7 +48,9 @@ def main() -> None:
 
     repo_path: Path | str = "跳过下载（使用现有缓存或示例）"
     if not args.skip_download:
-        repo_path = ingestor.prepare_local_copy(force=args.force_repo, strategy=args.strategy)
+        repo_path = ingestor.prepare_local_copy(
+            force=args.force_repo, strategy=args.strategy
+        )
     elif ingestor.repo_dir.exists():
         repo_path = ingestor.repo_dir
 
@@ -53,7 +60,9 @@ def main() -> None:
         force=args.force_processed,
         ensure_dataset=not args.skip_download,
     )
-    preview_records = ingestor.load_processed_records(limit=args.show) or ingestor.load_sample_records(limit=args.show)
+    preview_records = ingestor.load_processed_records(
+        limit=args.show
+    ) or ingestor.load_sample_records(limit=args.show)
 
     print("=== HowToCook 数据准备完成 ===")
     print(f"数据源目录: {repo_path}")

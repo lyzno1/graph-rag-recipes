@@ -1,4 +1,5 @@
 """命令行入口：体验 GraphRAG 推荐流程。"""
+
 from __future__ import annotations
 
 import argparse

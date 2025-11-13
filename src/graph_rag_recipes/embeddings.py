@@ -1,8 +1,9 @@
 """基于 sentence-transformers 的菜谱向量索引。"""
+
 from __future__ import annotations
 
 import logging
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import numpy as np
 
@@ -55,7 +56,9 @@ class RecipeEmbeddingIndex:
     def get_record(self, recipe_id: str) -> RecipeRecord | None:
         return self._records.get(recipe_id)
 
-    def query(self, text: str, top_k: int = 5, exclude: Sequence[str] | None = None) -> list[RecipeRecord]:
+    def query(
+        self, text: str, top_k: int = 5, exclude: Sequence[str] | None = None
+    ) -> list[RecipeRecord]:
         """根据任意文本检索最接近的菜谱。"""
 
         if not self._ready():
@@ -86,7 +89,9 @@ class RecipeEmbeddingIndex:
                 results.append(record)
         return results
 
-    def find_similar_to_recipe(self, recipe: RecipeRecord, top_k: int = 5) -> list[RecipeRecord]:
+    def find_similar_to_recipe(
+        self, recipe: RecipeRecord, top_k: int = 5
+    ) -> list[RecipeRecord]:
         """基于语义相似度寻找与特定菜谱接近的其他菜谱。"""
 
         query_text = recipe.as_prompt_chunk()
@@ -107,7 +112,9 @@ class RecipeEmbeddingIndex:
         try:
             self._model = SentenceTransformer(self.model_name)
         except Exception as exc:  # pragma: no cover - 依赖外部模型
-            LOGGER.warning("加载 SentenceTransformer(%s) 失败: %s", self.model_name, exc)
+            LOGGER.warning(
+                "加载 SentenceTransformer(%s) 失败: %s", self.model_name, exc
+            )
             self._enabled = False
 
     def _encode_text(self, text: str) -> np.ndarray | None:

@@ -1,4 +1,5 @@
 """集中管理项目配置与常量。"""
+
 from __future__ import annotations
 
 import os

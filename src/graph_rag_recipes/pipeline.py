@@ -1,4 +1,5 @@
 """GraphRAG 菜谱推荐主流程。"""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -52,19 +53,29 @@ class GraphRAGPipeline:
 
         reference = self._find_reference_recipe(user_query)
         if reference is None:
-            reference = RecipeRecord(recipe_id="UNKNOWN", title=user_query, ingredients=(), instructions="")
+            reference = RecipeRecord(
+                recipe_id="UNKNOWN", title=user_query, ingredients=(), instructions=""
+            )
             candidates = self.embedding_index.query(
                 user_query,
                 top_k=self.config.max_neighbors,
             )
         else:
-            candidates = self.retriever.find_similar_recipes(self.graph, reference.recipe_id)
+            candidates = self.retriever.find_similar_recipes(
+                self.graph, reference.recipe_id
+            )
             if not candidates:
-                candidates = self.embedding_index.find_similar_to_recipe(reference, self.config.max_neighbors)
+                candidates = self.embedding_index.find_similar_to_recipe(
+                    reference, self.config.max_neighbors
+                )
         if not candidates:
             candidates = self._fallback_candidates(reference)
         explanation = self.llm_generator.generate(reference, candidates, user_query)
-        return RecommendationResult(reference_recipe=reference, similar_recipes=candidates, explanation=explanation)
+        return RecommendationResult(
+            reference_recipe=reference,
+            similar_recipes=candidates,
+            explanation=explanation,
+        )
 
     def run_demo(self, user_query: str = "番茄炒蛋") -> RecommendationResult:
         result = self.recommend(user_query)
@@ -86,7 +97,11 @@ class GraphRAGPipeline:
             all_candidates.extend(neighbors)
 
         if reference is None:
-            fallback_query = user_profile.preferred_tags[0] if user_profile.preferred_tags else user_profile.user_id
+            fallback_query = (
+                user_profile.preferred_tags[0]
+                if user_profile.preferred_tags
+                else user_profile.user_id
+            )
             reference = self._find_reference_recipe(fallback_query)
             if reference is None:
                 reference = RecipeRecord(
@@ -95,9 +110,13 @@ class GraphRAGPipeline:
                     ingredients=(),
                     instructions="",
                 )
-                candidates = self.embedding_index.query(fallback_query, top_k=self.config.max_neighbors)
+                candidates = self.embedding_index.query(
+                    fallback_query, top_k=self.config.max_neighbors
+                )
             else:
-                candidates = self.embedding_index.find_similar_to_recipe(reference, self.config.max_neighbors)
+                candidates = self.embedding_index.find_similar_to_recipe(
+                    reference, self.config.max_neighbors
+                )
             if not candidates:
                 candidates = self._fallback_candidates(reference)
             explanation = self.llm_generator.generate(
@@ -105,7 +124,11 @@ class GraphRAGPipeline:
                 candidates,
                 f"用户 {user_profile.user_id} 偏好 {fallback_query}",
             )
-            return RecommendationResult(reference_recipe=reference, similar_recipes=candidates, explanation=explanation)
+            return RecommendationResult(
+                reference_recipe=reference,
+                similar_recipes=candidates,
+                explanation=explanation,
+            )
 
         deduped: list[RecipeRecord] = []
         seen_ids = set(user_profile.liked_recipe_ids)
@@ -120,7 +143,9 @@ class GraphRAGPipeline:
             candidate_seen.add(candidate.recipe_id)
 
         if not deduped:
-            deduped = self.embedding_index.find_similar_to_recipe(reference, self.config.max_neighbors)
+            deduped = self.embedding_index.find_similar_to_recipe(
+                reference, self.config.max_neighbors
+            )
         if not deduped:
             deduped = self._fallback_candidates(reference)
 
@@ -129,9 +154,13 @@ class GraphRAGPipeline:
             f"曾做过 {reference.title}"
         )
         explanation = self.llm_generator.generate(reference, deduped, explanation_input)
-        return RecommendationResult(reference_recipe=reference, similar_recipes=deduped, explanation=explanation)
+        return RecommendationResult(
+            reference_recipe=reference, similar_recipes=deduped, explanation=explanation
+        )
 
-    def _fallback_candidates(self, reference: RecipeRecord, limit: int | None = None) -> list[RecipeRecord]:
+    def _fallback_candidates(
+        self, reference: RecipeRecord, limit: int | None = None
+    ) -> list[RecipeRecord]:
         """当图中缺乏相似节点时，使用示例菜谱作为兜底。"""
 
         candidate_pool = list(self._records)
@@ -152,7 +181,9 @@ class GraphRAGPipeline:
             scores.append((score, record))
 
         scores.sort(key=lambda pair: pair[0], reverse=True)
-        filtered = [record for score, record in scores if score > 0][: limit or self.config.max_neighbors]
+        filtered = [record for score, record in scores if score > 0][
+            : limit or self.config.max_neighbors
+        ]
         if filtered:
             return filtered
         # 如果没有重叠，直接返回示例前几项

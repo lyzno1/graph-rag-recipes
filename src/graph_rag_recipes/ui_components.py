@@ -1,9 +1,10 @@
 """Streamlit/CLI 共用的展示函数。"""
+
 from __future__ import annotations
 
 from typing import Sequence
 
-from .data_models import RecommendationResult, RecipeRecord
+from .data_models import RecommendationResult
 
 
 def format_cli_block(result: RecommendationResult) -> str:
@@ -18,7 +19,9 @@ def format_cli_block(result: RecommendationResult) -> str:
     return "\n".join(lines)
 
 
-def streamlit_render(result: RecommendationResult) -> Sequence[str]:  # pragma: no cover - 仅供 UI 调用
+def streamlit_render(
+    result: RecommendationResult,
+) -> Sequence[str]:  # pragma: no cover - 仅供 UI 调用
     """预留给 Streamlit 的轻量封装，暂以文本形式输出。"""
 
     return [

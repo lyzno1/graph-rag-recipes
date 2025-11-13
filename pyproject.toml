@@ -18,6 +18,7 @@ dependencies = [
     "openai>=1.35",
     "httpx[socks]>=0.27",
     "python-dotenv>=1.0",
+    "ruff>=0.14.4",
 ]
 
 [project.scripts]

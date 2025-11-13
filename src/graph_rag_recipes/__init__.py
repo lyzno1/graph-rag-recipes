@@ -1,4 +1,5 @@
 """GraphRAG 菜谱推荐系统包。"""
+
 from __future__ import annotations
 
 from .config import ProjectConfig

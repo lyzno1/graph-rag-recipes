@@ -1,4 +1,5 @@
 """菜谱知识图谱构建相关逻辑。"""
+
 from __future__ import annotations
 
 from itertools import combinations
@@ -48,7 +49,8 @@ class RecipeGraphBuilder:
         ingredient_overlap = (
             0.0
             if not ingredients_left or not ingredients_right
-            else len(ingredients_left & ingredients_right) / min(len(ingredients_left), len(ingredients_right))
+            else len(ingredients_left & ingredients_right)
+            / min(len(ingredients_left), len(ingredients_right))
         )
         tag_jaccard = safe_jaccard(tags_left, tags_right)
 

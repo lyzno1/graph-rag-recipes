@@ -1,7 +1,7 @@
 """内置用户画像样本，支撑 Project 4 的用户节点示例。"""
+
 from __future__ import annotations
 
-from dataclasses import dataclass
 from typing import Iterable, Sequence
 
 from .data_models import UserProfile
@@ -11,7 +11,9 @@ class UserProfileRepository:
     """提供用户节点及历史菜谱的读写接口。"""
 
     def __init__(self, profiles: Iterable[UserProfile] | None = None) -> None:
-        sample_profiles = list(profiles) if profiles is not None else self._default_profiles()
+        sample_profiles = (
+            list(profiles) if profiles is not None else self._default_profiles()
+        )
         self._profiles = {profile.user_id: profile for profile in sample_profiles}
 
     def get(self, user_id: str) -> UserProfile | None:

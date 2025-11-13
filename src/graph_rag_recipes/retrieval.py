@@ -1,7 +1,8 @@
 """基于图结构的检索逻辑。"""
+
 from __future__ import annotations
 
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import networkx as nx
 
@@ -14,7 +15,9 @@ class RecipeRetriever:
     def __init__(self, max_neighbors: int = 5) -> None:
         self.max_neighbors = max_neighbors
 
-    def find_similar_recipes(self, graph: nx.Graph, recipe_id: str) -> Sequence[RecipeRecord]:
+    def find_similar_recipes(
+        self, graph: nx.Graph, recipe_id: str
+    ) -> Sequence[RecipeRecord]:
         if recipe_id not in graph:
             return []
 
@@ -22,10 +25,14 @@ class RecipeRetriever:
             (neighbor, graph[recipe_id][neighbor]["weight"])
             for neighbor in graph.neighbors(recipe_id)
         )
-        sorted_neighbors = sorted(neighbors, key=lambda item: item[1], reverse=True)[: self.max_neighbors]
+        sorted_neighbors = sorted(neighbors, key=lambda item: item[1], reverse=True)[
+            : self.max_neighbors
+        ]
         return [self._node_to_record(graph, node) for node, _ in sorted_neighbors]
 
-    def recommend_from_text(self, graph: nx.Graph, query: str) -> tuple[RecipeRecord | None, Sequence[RecipeRecord]]:
+    def recommend_from_text(
+        self, graph: nx.Graph, query: str
+    ) -> tuple[RecipeRecord | None, Sequence[RecipeRecord]]:
         """Fallback：文本匹配最近的节点后再做邻域检索。"""
 
         reference = self.match_recipe_by_text(graph, query)

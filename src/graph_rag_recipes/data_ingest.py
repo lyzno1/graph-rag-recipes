@@ -1,4 +1,5 @@
 """HowToCook 数据集的获取与最小清洗逻辑。"""
+
 from __future__ import annotations
 
 import json
@@ -115,7 +116,9 @@ class HowToCookIngestor:
             records = self.load_sample_records(limit)
 
         payload = [record.to_dict() for record in records]
-        target.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        target.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
         return target
 
     # ------------------------------------------------------------------ 数据加载
@@ -179,7 +182,14 @@ class HowToCookIngestor:
 
         try:
             subprocess.run(
-                [git_bin, "clone", "--depth", "1", self.config.howtocook_repo, str(self.repo_dir)],
+                [
+                    git_bin,
+                    "clone",
+                    "--depth",
+                    "1",
+                    self.config.howtocook_repo,
+                    str(self.repo_dir),
+                ],
                 check=True,
                 stdout=subprocess.DEVNULL,
                 stderr=subprocess.DEVNULL,
@@ -242,7 +252,9 @@ class HowToCookIngestor:
         return (strategy,)
 
     # ------------------------------------------------------------------ Markdown 解析
-    def _iter_repo_records(self, repo_dir: Path, limit: int | None = None) -> Iterator[RecipeRecord]:
+    def _iter_repo_records(
+        self, repo_dir: Path, limit: int | None = None
+    ) -> Iterator[RecipeRecord]:
         search_root = repo_dir / "dishes"
         if not search_root.exists():
             search_root = repo_dir
@@ -264,7 +276,9 @@ class HowToCookIngestor:
             if limit and counter >= limit:
                 break
 
-    def _parse_markdown_file(self, md_file: Path, repo_dir: Path) -> RecipeRecord | None:
+    def _parse_markdown_file(
+        self, md_file: Path, repo_dir: Path
+    ) -> RecipeRecord | None:
         text = md_file.read_text(encoding="utf-8", errors="ignore")
         title = self._extract_title(text) or md_file.stem
         sections = self._extract_sections(text)

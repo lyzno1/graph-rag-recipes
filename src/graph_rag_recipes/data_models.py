@@ -1,4 +1,5 @@
 """轻量数据模型定义，便于在各模块之间传递结构化信息。"""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
