@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Sequence
+from typing import Any, Mapping, Sequence
 
 
 @dataclass(slots=True)
@@ -14,6 +14,7 @@ class RecipeRecord:
     ingredients: Sequence[str] = field(default_factory=tuple)
     instructions: str = ""
     tags: Sequence[str] = field(default_factory=tuple)
+    source_path: str | None = None
 
     def as_prompt_chunk(self) -> str:
         """生成供 LLM 使用的文本片段。"""
@@ -25,6 +26,27 @@ class RecipeRecord:
             f"主要食材: {ingredient_str or '未知'}\n"
             f"口味/标签: {tags or '未标注'}\n"
             f"做法摘要: {self.instructions[:200]}..."
+        )
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "recipe_id": self.recipe_id,
+            "title": self.title,
+            "ingredients": list(self.ingredients),
+            "instructions": self.instructions,
+            "tags": list(self.tags),
+            "source_path": self.source_path,
+        }
+
+    @classmethod
+    def from_mapping(cls, payload: Mapping[str, Any]) -> "RecipeRecord":
+        return cls(
+            recipe_id=str(payload.get("recipe_id")),
+            title=payload.get("title", "未知菜谱"),
+            ingredients=tuple(payload.get("ingredients", [])),
+            instructions=payload.get("instructions", ""),
+            tags=tuple(payload.get("tags", [])),
+            source_path=payload.get("source_path"),
         )
 
 

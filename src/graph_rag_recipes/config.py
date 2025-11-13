@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 
@@ -44,8 +44,8 @@ class ModelSettings:
 class ProjectConfig:
     """项目全局配置，供管线与 CLI 调用。"""
 
-    paths: ProjectPaths = ProjectPaths.from_project_root()
-    models: ModelSettings = ModelSettings()
+    paths: ProjectPaths = field(default_factory=ProjectPaths.from_project_root)
+    models: ModelSettings = field(default_factory=ModelSettings)
     howtocook_repo: str = "https://github.com/Anduin2017/HowToCook"
     max_neighbors: int = 10
     similarity_threshold: float = 0.35

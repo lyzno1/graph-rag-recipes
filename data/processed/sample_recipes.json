@@ -1,0 +1,74 @@
+[
+  {
+    "recipe_id": "sample|home_style|tomato_scrambled_eggs",
+    "title": "番茄炒蛋",
+    "ingredients": [
+      "鸡蛋 3 个",
+      "番茄 2 个",
+      "小葱 1 根",
+      "食用油 2 汤匙",
+      "盐 1/2 茶匙",
+      "白砂糖 1 茶匙"
+    ],
+    "instructions": "鸡蛋打散炒至半熟盛出，再将番茄炒出汤汁，倒回鸡蛋调入糖与胡椒翻匀即可。",
+    "tags": [
+      "家常热菜",
+      "酸甜"
+    ],
+    "source_path": "data/raw/howtocook_sample/家常热菜/番茄炒蛋.md"
+  },
+  {
+    "recipe_id": "sample|sichuan|yuxiang_shredded_pork",
+    "title": "鱼香肉丝",
+    "ingredients": [
+      "猪里脊 250 克",
+      "胡萝卜 1 根",
+      "木耳 5 朵",
+      "青椒 1 个",
+      "郫县豆瓣酱 1 汤匙",
+      "陈醋 1 汤匙"
+    ],
+    "instructions": "肉丝腌制后入锅滑散，另炒豆瓣酱与配菜，倒入肉丝后加糖醋生抽调味并勾芡收汁。",
+    "tags": [
+      "川味热菜",
+      "家常菜"
+    ],
+    "source_path": "data/raw/howtocook_sample/川味热菜/鱼香肉丝.md"
+  },
+  {
+    "recipe_id": "sample|cold|smashed_cucumber",
+    "title": "凉拌黄瓜",
+    "ingredients": [
+      "黄瓜 2 根",
+      "蒜瓣 3 瓣",
+      "香菜 1 把",
+      "生抽 1 汤匙",
+      "米醋 1 汤匙",
+      "香油 1 茶匙"
+    ],
+    "instructions": "黄瓜拍碎去多余水分，拌入蒜泥、香菜和糖醋、生抽、香油的调味汁即可食用。",
+    "tags": [
+      "凉菜",
+      "开胃"
+    ],
+    "source_path": "data/raw/howtocook_sample/凉菜/凉拌黄瓜.md"
+  },
+  {
+    "recipe_id": "sample|staple|mushroom_chicken_rice",
+    "title": "香菇滑鸡饭",
+    "ingredients": [
+      "去骨鸡腿肉 300 克",
+      "香菇 5 朵",
+      "青豆 50 克",
+      "米饭 2 碗",
+      "生抽 1 汤匙",
+      "蚝油 1 汤匙"
+    ],
+    "instructions": "腌好的鸡腿肉煎香后与香菇、青豆同炒，连同汤汁铺在热米饭上焖几分钟让味道渗入。",
+    "tags": [
+      "主食",
+      "家常热菜"
+    ],
+    "source_path": "data/raw/howtocook_sample/主食/香菇滑鸡饭.md"
+  }
+]

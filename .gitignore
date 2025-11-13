@@ -11,9 +11,11 @@ wheels/
 
 # Data artifacts
 data/raw/*
+!data/raw/README.md
+!data/raw/howtocook_sample/**
 data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+!data/processed/README.md
+!data/processed/sample_recipes.json
 
 # uv cache override
 .uv-cache/

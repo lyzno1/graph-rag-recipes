@@ -22,8 +22,8 @@
 ```
 graph-rag-recipes/
 ├── data/
-│   ├── raw/            # 原始数据或下载占位
-│   └── processed/      # 清洗后的样本、向量缓存
+│   ├── raw/            # 原始数据（howtocook_repo）及 howtocook_sample 示例
+│   └── processed/      # 清洗后的 JSON（sample_recipes / recipes_index）
 ├── scripts/
 │   ├── bootstrap_data.py  # 准备 HowToCook 数据占位与示例
 │   └── run_pipeline.py    # 命令行演示推荐流程
@@ -59,8 +59,14 @@ graph-rag-recipes/
 # 安装依赖
 uv sync
 
-# 准备数据占位（可多次执行，--force 重新生成）
-uv run python scripts/bootstrap_data.py [--force]
+# 准备/刷新数据
+uv run python scripts/bootstrap_data.py \
+  --limit 800 \
+  --force-processed \
+  --strategy auto
+
+# 仅使用本地缓存或示例
+uv run python scripts/bootstrap_data.py --skip-download
 
 # 运行命令行 Demo（可替换查询词）
 uv run python scripts/run_pipeline.py "番茄炒蛋"
@@ -70,6 +76,11 @@ uv run graph-rag-recipes
 ```
 
 未来可添加 `uv run streamlit run app.py` 形式的前端，在 `streamlit_app.py` 中引用 `GraphRAGPipeline` 即可。
+
+## 数据说明
+- `data/raw/howtocook_sample/`：内置 Markdown 小样本，可在离线环境下演示与编写测试。
+- `data/processed/sample_recipes.json`：对应的结构化结果，`HowToCookIngestor` 会在缺少真实数据时使用它。
+- `scripts/bootstrap_data.py`：提供 `--force-repo/--force-processed/--limit/--strategy` 等参数，自动拉取仓库并生成 `data/processed/recipes_index.json`。
 
 ## 开发计划
 1. **数据阶段**：实现 HowToCook 拉取、字段标准化、用户节点建模。
