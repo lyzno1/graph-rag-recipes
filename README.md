@@ -88,6 +88,12 @@ uv run graph-rag-recipes
 
 未来可添加 `uv run streamlit run app.py` 形式的前端，在 `streamlit_app.py` 中引用 `GraphRAGPipeline` 即可。
 
+## LLM 配置与降级策略
+
+- `.env` 中配置 `OPENAI_API_KEY`（或其他 Provider 对应字段，参见 `ProjectConfig.llm_api_key()`）后，`LLMGenerator` 会调用 `gpt-4o-mini` 输出完整的中文推荐解释。
+- 如果未安装 OpenAI SDK 或未设置 API Key，系统仍会完成图检索并返回候选菜谱，只是推荐理由将回退为内置模板，描述共享食材/口味的固定文案。  
+- 因此在需要展示“大模型生成”效果或提交作业截图时，请确保 `.env` 中的密钥有效，并在执行 `uv run python scripts/run_pipeline.py U123` 之前导出环境变量。
+
 ## 数据与环境说明
 - `data/raw/howtocook_sample/`：内置 Markdown 小样本，可在离线环境下演示与编写测试。
 - `data/processed/sample_recipes.json`：对应的结构化结果，`HowToCookIngestor` 会在缺少真实数据时使用它。
@@ -101,5 +107,11 @@ uv run graph-rag-recipes
 3. **检索阶段**：加入向量 KNN、多跳子图遍历、过滤器（口味、食材）。
 4. **生成阶段**：引入 Prompt 模板、Memory、批量解释。
 5. **展示阶段**：落地 Streamlit UI、图可视化与录屏 Demo。
+
+## 验证与演示清单
+1. `uv run python scripts/bootstrap_data.py --limit 800 --force-processed`：确保最新结构化数据存在。
+2. 根据是否需要 LLM 真实输出决定是否在 `.env` 中配置 API Key；无 Key 也可演示完整 GraphRAG 流程，只是理由为模板文案。
+3. `uv run python scripts/run_pipeline.py U123`：复现 Project 4 示例（“番茄炒蛋” → “番茄豆腐汤/蛋炒西红柿饭” → 推荐理由）。
+4. 需要图示或报告时，可截图 CLI 输出或记录 `result.summary()`，并说明是否启用了 LLM。
 
 该架构已满足课程项目“project 4: 基于 GraphRAG 的推理”需求，可在此基础上持续扩展能力与表现力。
