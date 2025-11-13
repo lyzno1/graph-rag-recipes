@@ -44,7 +44,15 @@ class RecipeGraphBuilder:
             union = a | b
             return 0.0 if not union else len(a & b) / len(union)
 
-        return 0.7 * safe_jaccard(ingredients_left, ingredients_right) + 0.3 * safe_jaccard(tags_left, tags_right)
+        ingredient_jaccard = safe_jaccard(ingredients_left, ingredients_right)
+        ingredient_overlap = (
+            0.0
+            if not ingredients_left or not ingredients_right
+            else len(ingredients_left & ingredients_right) / min(len(ingredients_left), len(ingredients_right))
+        )
+        tag_jaccard = safe_jaccard(tags_left, tags_right)
+
+        return 0.6 * ingredient_jaccard + 0.3 * ingredient_overlap + 0.1 * tag_jaccard
 
 
 __all__ = ["RecipeGraphBuilder"]

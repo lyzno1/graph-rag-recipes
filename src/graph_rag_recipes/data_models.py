@@ -64,3 +64,15 @@ class RecommendationResult:
             f"基于 {self.reference_recipe.title}，候选菜谱: {similar_titles}. "
             f"理由: {self.explanation or '待生成'}"
         )
+
+
+@dataclass(slots=True)
+class UserProfile:
+    """描述用户节点及其历史偏好。"""
+
+    user_id: str
+    liked_recipe_ids: Sequence[str] = field(default_factory=tuple)
+    preferred_tags: Sequence[str] = field(default_factory=tuple)
+
+    def primary_recipe(self) -> str | None:
+        return self.liked_recipe_ids[0] if self.liked_recipe_ids else None

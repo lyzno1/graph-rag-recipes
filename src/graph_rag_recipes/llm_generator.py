@@ -45,11 +45,13 @@ class LLMGenerator:
 
     @staticmethod
     def _fallback_reason(reference: RecipeRecord, candidates: Sequence[RecipeRecord]) -> str:
-        candidate_titles = ", ".join(recipe.title for recipe in candidates)
-        return (
-            f"你提到的 {reference.title} 与 {candidate_titles} 共享典型食材，"
-            "因此可以尝试这些菜式来保持相似的风味。"
-        )
+        candidate_titles = ", ".join(recipe.title for recipe in candidates if recipe.title)
+        if candidate_titles:
+            return (
+                f"你提到的 {reference.title} 与 {candidate_titles} 共享典型食材，"
+                "因此可以尝试这些菜式来保持相似的风味。"
+            )
+        return f"根据你对 {reference.title} 的偏好，我们建议继续探索相同食材/口味的菜式，保持熟悉的风味体验。"
 
 
 __all__ = ["LLMGenerator"]

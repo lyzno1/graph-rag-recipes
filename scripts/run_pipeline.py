@@ -10,7 +10,12 @@ from graph_rag_recipes.ui_components import format_cli_block
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="运行 GraphRAG 推荐示例")
-    parser.add_argument("query", nargs="?", default="番茄炒蛋", help="用户输入或历史喜欢的菜")
+    parser.add_argument(
+        "query",
+        nargs="?",
+        default="U123",
+        help="用户 ID (如 U123) 或喜欢的菜名",
+    )
     return parser.parse_args()
 
 

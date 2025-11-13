@@ -19,3 +19,6 @@ data/processed/*
 
 # uv cache override
 .uv-cache/
+
+# Local secrets
+.env

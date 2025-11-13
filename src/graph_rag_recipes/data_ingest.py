@@ -146,10 +146,30 @@ class HowToCookIngestor:
 
     def iter_records(self, limit: int | None = None) -> Iterable[RecipeRecord]:
         processed = self.load_processed_records(limit)
-        if processed:
-            yield from processed
-            return
-        yield from self.load_sample_records(limit)
+        samples = self.load_sample_records()
+        seen: set[str] = set()
+        emitted = 0
+
+        def should_stop() -> bool:
+            return limit is not None and emitted >= limit
+
+        for record in processed:
+            if record.recipe_id in seen:
+                continue
+            seen.add(record.recipe_id)
+            emitted += 1
+            yield record
+            if should_stop():
+                return
+
+        for record in samples:
+            if record.recipe_id in seen:
+                continue
+            seen.add(record.recipe_id)
+            emitted += 1
+            yield record
+            if should_stop():
+                return
 
     # ------------------------------------------------------------------ 仓库同步
     def _git_clone_repo(self) -> Path:

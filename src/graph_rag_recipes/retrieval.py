@@ -28,12 +28,22 @@ class RecipeRetriever:
     def recommend_from_text(self, graph: nx.Graph, query: str) -> tuple[RecipeRecord | None, Sequence[RecipeRecord]]:
         """Fallback：文本匹配最近的节点后再做邻域检索。"""
 
+        reference = self.match_recipe_by_text(graph, query)
+        if not reference:
+            return None, []
+        candidates = self.find_similar_recipes(graph, reference.recipe_id)
+        return reference, candidates
+
+    def match_recipe_by_text(self, graph: nx.Graph, query: str) -> RecipeRecord | None:
         anchor_id = self._fuzzy_match(graph, query)
         if not anchor_id:
-            return None, []
-        reference = self._node_to_record(graph, anchor_id)
-        candidates = self.find_similar_recipes(graph, anchor_id)
-        return reference, candidates
+            return None
+        return self._node_to_record(graph, anchor_id)
+
+    def get_recipe_record(self, graph: nx.Graph, node_id: str) -> RecipeRecord | None:
+        if node_id not in graph:
+            return None
+        return self._node_to_record(graph, node_id)
 
     @staticmethod
     def _node_to_record(graph: nx.Graph, node_id: str) -> RecipeRecord:

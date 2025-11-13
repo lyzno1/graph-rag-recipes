@@ -37,7 +37,9 @@ graph-rag-recipes/
 │       ├── llm_generator.py
 │       ├── pipeline.py
 │       ├── retrieval.py
-│       └── ui_components.py
+│       ├── ui_components.py
+│       ├── embeddings.py
+│       └── user_profiles.py
 ├── pyproject.toml
 └── README.md
 ```
@@ -49,8 +51,10 @@ graph-rag-recipes/
 - `graph_builder.py`：基于共享食材与标签计算相似度，并生成 weighted graph。
 - `retrieval.py`：从图中检索邻居节点或根据文本进行模糊匹配。
 - `llm_generator.py`：封装 LLM 调用（OpenAI/Ollama/GLM 均可），未配置 API Key 时会返回模板化理由。
-- `pipeline.py`：串联各层并输出 `RecommendationResult`，供脚本和 UI 调用。
+- `pipeline.py`：串联各层并输出 `RecommendationResult`，支持“用户节点 → 历史菜谱 → 相似菜谱”流程。
 - `ui_components.py`：CLI 及 Streamlit 共享的展示辅助函数。
+- `embeddings.py`：基于 sentence-transformers 维护菜谱向量索引，提升文本/用户检索的鲁棒性。
+- `user_profiles.py`：内置示例用户画像，`U123` 等 ID 会自动映射到特定菜谱节点。
 
 ## 使用方式
 所有命令均通过 `uv` 执行，确保依赖与解释器一致。
@@ -58,6 +62,10 @@ graph-rag-recipes/
 ```bash
 # 安装依赖
 uv sync
+
+# 复制并填写环境变量（用于真实 LLM 调用）
+cp .env.example .env
+# 编辑 .env，写入 OPENAI_API_KEY / 其他厂商 Key
 
 # 准备/刷新数据
 uv run python scripts/bootstrap_data.py \
@@ -68,7 +76,10 @@ uv run python scripts/bootstrap_data.py \
 # 仅使用本地缓存或示例
 uv run python scripts/bootstrap_data.py --skip-download
 
-# 运行命令行 Demo（可替换查询词）
+# 按项目要求体验“用户节点 → 智能推荐”
+uv run python scripts/run_pipeline.py U123
+
+# 仍可输入菜名进行检索
 uv run python scripts/run_pipeline.py "番茄炒蛋"
 
 # 也可直接使用入口脚本
@@ -77,10 +88,12 @@ uv run graph-rag-recipes
 
 未来可添加 `uv run streamlit run app.py` 形式的前端，在 `streamlit_app.py` 中引用 `GraphRAGPipeline` 即可。
 
-## 数据说明
+## 数据与环境说明
 - `data/raw/howtocook_sample/`：内置 Markdown 小样本，可在离线环境下演示与编写测试。
 - `data/processed/sample_recipes.json`：对应的结构化结果，`HowToCookIngestor` 会在缺少真实数据时使用它。
+- `src/graph_rag_recipes/user_profiles.py`：示例用户节点（如 U123）关联到这些样本，以保证“番茄炒蛋 → 番茄豆腐汤”等演示稳定。
 - `scripts/bootstrap_data.py`：提供 `--force-repo/--force-processed/--limit/--strategy` 等参数，自动拉取仓库并生成 `data/processed/recipes_index.json`。
+- `.env.example`：给出 LLM 所需的环境变量模板，与 `python-dotenv` 配合自动加载，确保本地/部署环境不直接暴露密钥。
 
 ## 开发计划
 1. **数据阶段**：实现 HowToCook 拉取、字段标准化、用户节点建模。

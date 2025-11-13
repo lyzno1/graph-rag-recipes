@@ -5,6 +5,15 @@ import os
 from dataclasses import dataclass, field
 from pathlib import Path
 
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover - 可选依赖
+    load_dotenv = None  # type: ignore
+
+if load_dotenv:
+    project_root = Path(__file__).resolve().parents[2]
+    load_dotenv(project_root / ".env", override=False)
+
 
 @dataclass(slots=True)
 class ProjectPaths:
@@ -48,7 +57,7 @@ class ProjectConfig:
     models: ModelSettings = field(default_factory=ModelSettings)
     howtocook_repo: str = "https://github.com/Anduin2017/HowToCook"
     max_neighbors: int = 10
-    similarity_threshold: float = 0.35
+    similarity_threshold: float = 0.2
 
     def llm_api_key(self) -> str | None:
         env_key = {
