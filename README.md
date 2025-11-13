@@ -69,11 +69,11 @@ cp .env.example .env
 
 # 准备/刷新数据
 uv run python scripts/bootstrap_data.py \
-  --limit 800 \
+  --limit 0 \
   --force-processed \
   --strategy auto
 
-# 仅使用本地缓存或示例
+# 仅使用本地缓存或示例（示例数据规模较小）
 uv run python scripts/bootstrap_data.py --skip-download
 
 # 按项目要求体验“用户节点 → 智能推荐”
