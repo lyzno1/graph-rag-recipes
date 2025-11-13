@@ -5,4 +5,4 @@
 - `howtocook_sample/`：若尚未下载完整数据，可参考其中的 Markdown 示范结构。
 - 本 README：说明目录用途，避免空目录被清理。
 
-在联网环境中，可以运行 `uv run python scripts/bootstrap_data.py` 自动克隆或下载最新的 HowToCook 仓库，数据会被放置到 `data/raw/howtocook_repo/`。如需清理重新下载，可添加 `--force-repo` 选项。
+在联网环境中，可以运行 `uv run scripts/bootstrap_data.py` 自动克隆或下载最新的 HowToCook 仓库，数据会被放置到 `data/raw/howtocook_repo/`。如需清理重新下载，可添加 `--force-repo` 选项。
