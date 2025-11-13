@@ -39,10 +39,46 @@ class SectionConfig:
 
 
 SECTION_CONFIGS: tuple[SectionConfig, ...] = (
-    SectionConfig("ingredients", ("原料", "食材", "主要原料", "需要准备", "材料")),
-    SectionConfig("seasonings", ("配料", "辅料", "调料", "调味", "佐料")),
-    SectionConfig("instructions", ("步骤", "做法", "制作步骤", "烹饪步骤", "操作步骤")),
-    SectionConfig("tips", ("小贴士", "提示", "心得", "注意事项")),
+    SectionConfig(
+        "ingredients",
+        (
+            "原料",
+            "食材",
+            "主要原料",
+            "需要准备",
+            "材料",
+            "必备原料和工具",
+            "必备原料",
+            "必备原料及工具",
+            "主食材",
+            "副食材",
+            "备料",
+            "备菜",
+            "准备工作",
+            "原材料",
+            "原材料准备",
+        ),
+    ),
+    SectionConfig(
+        "seasonings",
+        ("配料", "辅料", "调料", "调味", "佐料"),
+    ),
+    SectionConfig(
+        "instructions",
+        (
+            "步骤",
+            "做法",
+            "制作步骤",
+            "烹饪步骤",
+            "操作步骤",
+            "操作",
+            "开始制作",
+            "制作流程",
+            "流程图解",
+            "最终步骤",
+        ),
+    ),
+    SectionConfig("tips", ("小贴士", "提示", "心得", "注意事项", "附加内容")),
 )
 
 
