@@ -5,8 +5,8 @@ Core Python code lives in `src/graph_rag_recipes/`, including config, ingest, gr
 
 ## Build, Test, and Development Commands
 - `uv sync` – install the locked Python 3.11 environment.
-- `uv run python scripts/bootstrap_data.py --limit 800 --force-processed` – fetch/clean HowToCook and refresh processed indices.
-- `uv run python scripts/run_pipeline.py U123` – execute the end-to-end GraphRAG path for a seeded user.
+- `uv run scripts/bootstrap_data.py --limit 800 --force-processed` – fetch/clean HowToCook and refresh processed indices.
+- `uv run scripts/run_pipeline.py U123` – execute the end-to-end GraphRAG path for a seeded user.
 - `uv run graph-rag-recipes "番茄炒蛋"` – call the console entry point with either a recipe title or user ID.
 - `uv run pytest -q` – run the test suite locally; add `-k graph_builder` for targeted checks.
 

@@ -92,7 +92,7 @@ uv run graph-rag-recipes
 
 - `.env` 中配置 `OPENAI_API_KEY`（或其他 Provider 对应字段，参见 `ProjectConfig.llm_api_key()`）后，`LLMGenerator` 会调用 `gpt-4o-mini` 输出完整的中文推荐解释。
 - 如果未安装 OpenAI SDK 或未设置 API Key，系统仍会完成图检索并返回候选菜谱，只是推荐理由将回退为内置模板，描述共享食材/口味的固定文案。  
-- 因此在需要展示“大模型生成”效果或提交作业截图时，请确保 `.env` 中的密钥有效，并在执行 `uv run python scripts/run_pipeline.py U123` 之前导出环境变量。
+- 因此在需要展示“大模型生成”效果或提交作业截图时，请确保 `.env` 中的密钥有效，并在执行 `uv run scripts/run_pipeline.py U123` 之前导出环境变量。
 
 ## 数据与环境说明
 - `data/raw/howtocook_sample/`：内置 Markdown 小样本，可在离线环境下演示与编写测试。
