@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{makecell}
+
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+ \usepackage{graphicx}
+ \usepackage{titling}
+
+ \title{Title
+}
+\author{Project Technical Report}
+\date{November 2025}
+ 
+ \usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    %\fancyfoot[R]{\includegraphics[width=2cm]{KULEUVEN_GENT_RGB_LOGO.png}}
+    \fancyfoot[L]{\thedate}
+    \fancyhead[L]{Fundamentals and Applications of Large Models}
+    \fancyhead[R]{\theauthor}
+}
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+\usepackage{lipsum}  
+\usepackage{cmbright}
+
+\begin{document}
+
+\maketitle
+
+\noindent\begin{tabular}{@{}ll}
+    Student & student name \\
+    Student ID & ID \\
+     %Promotor &  Chuan Wang, \\
+     %Co-promotors & ing. Jarne Van Mulders, ing. Guus Leenders
+\end{tabular}
+
+
+
+
+\section{作业说明}
+
+\subsection{\textbf{作业总体说明：}}
+\begin{itemize}
+    \item 提交内容：中文、不少于10页、latex编译成pdf。
+    \item 实现并撰写一篇报告：包含引言、相关工作介绍、个人负责模块详细内容、以及实现效果和分析等。
+\end{itemize}
+
+\subsection{代码开源要求}
+\begin{itemize}
+    \item 一个 Git 仓库（GitHub link）包含：src/、requirements.txt、README.md、scripts/run.sh。
+    \item 包含可执行的代码、测试数据、模型checkpoint。
+    \item results/ 放训练曲线图与表格。
+\end{itemize}
+
+
+
+
+
+
+
+\setcounter{section}{0}
+\section{Introduction}
+Introduce the background and motivation of the project. Explain the purpose of this assignment and summarize the main contributions of your implementation.
+
+
+
+% =======================================================
+\section{Related Work}
+
+
+% =======================================================
+\section{Model Architecture and Mathematical Derivation}
+
+
+% =======================================================
+\section{Implementation Details}
+Describe how you implemented the model and training pipeline.
+
+
+% =======================================================
+\section{Experimental Setup}
+Describe the dataset, training setup, and evaluation metrics.
+
+
+
+% =======================================================
+\section{Results and Analysis}
+Present quantitative and qualitative results.
+
+% =======================================================
+\section{Reproducibility and Code Structure}
+Explain how to reproduce the results.
+
+\begin{itemize}
+    \item github link
+    \item Command line examples
+
+\end{itemize}
+
+
+% =======================================================
+\section{Conclusion and Future Work}
+Summarize what you have implemented and learned.
+
+
+% =======================================================
+
+
+% =======================================================
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+\end{document}
+
+
+\end{document}

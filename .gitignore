@@ -22,3 +22,5 @@ data/processed/*
 
 # Local secrets
 .env
+
+.DS_Store
