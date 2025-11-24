@@ -516,9 +516,9 @@ def parse_args() -> argparse.Namespace:
 \toprule
 属性 & 数值 \\
 \midrule
-原始 Markdown 文件数 & 800+ \\
-有效解析菜谱数 & 约 750 \\
-平均食材数/菜谱 & 6-8 个 \\
+原始 Markdown 文件数 & 300+ \\
+有效解析菜谱数 & 当前 305 \\
+平均食材数/菜谱 & 5-8 个 \\
 标签层级 & 2-3 级 \\
 主要类别 & 热菜、凉菜、汤品、主食、甜品、饮品 \\
 \bottomrule
@@ -534,9 +534,9 @@ def parse_args() -> argparse.Namespace:
 \toprule
 指标 & 数值 \\
 \midrule
-节点数 & 750 \\
-边数 & 约 5000-8000 \\
-平均度数 & 约 10-15 \\
+节点数 & 305 \\
+边数 & 千级（受阈值与数据更新影响） \\
+平均度数 & 十几（稠密连通） \\
 聚类系数 & 约 0.3-0.4 \\
 连通分量数 & 1（全连通） \\
 \bottomrule
@@ -616,8 +616,8 @@ README/LICENSE & 跳过 & N/A \\
 操作 & 耗时 & 复杂度 \\
 \midrule
 数据下载（Git Clone） & 10-30 秒 & 取决于网络 \\
-Markdown 解析（800条） & 2-3 秒 & $O(n \cdot m)$ \\
-图构建（800节点） & 3-5 秒 & $O(n^2)$ \\
+Markdown 解析（约 300 条） & 1-2 秒 & $O(n \cdot m)$ \\
+图构建（305 节点） & 1-2 秒 & $O(n^2)$ \\
 邻域检索 & < 10 ms & $O(d \log d)$ \\
 模糊匹配 & < 50 ms & $O(n)$ \\
 \bottomrule
@@ -675,7 +675,7 @@ data/
 \begin{lstlisting}[language=bash,caption={数据准备与图构建}]
 # 完整数据准备
 uv run scripts/bootstrap_data.py \
-    --limit 800 \
+    --limit 0 \
     --force-processed \
     --strategy auto
 
