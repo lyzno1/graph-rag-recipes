@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.24)  24 NOV 2025 17:02
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.11.24)  24 NOV 2025 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1065,5 +1065,147 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 51.
+(./report_yangjianheng.out) (./report_yangjianheng.out)
 \@outlinefile=\write4
-\openout4 = `rep
+\openout4 = `report_yangjianheng.out'.
+
+\c@lstlisting=\count373
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
+
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(./report_yangjianheng.toc
+
+[1
+
+])
+\tf@toc=\write5
+\openout5 = `report_yangjianheng.toc'.
+
+
+
+[2]
+
+Package fontspec Info: 
+(fontspec)             Script 'CJK' not explicitly supported within font
+(fontspec)             'STFangsong'. Check the typeset output, and if it is
+(fontspec)             okay then ignore this warning. Otherwise a different
+(fontspec)             font should be chosen.
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STFangsong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STFangsong/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "STFangsong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'STFangsong(0)' created for font
+(fontspec)             'STFangsong' with options [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"STFangsong/OT:script=hani;language=dflt;"
+
+
+
+[3]
+
+[4]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 202.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 222.
+
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no │ (U+2502) in font [lmmono9-regular]:!
+Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no │ (U+2502) in font [lmmono9-regular]:!
+Missing character: There is no │ (U+2502) in font [lmmono9-regular]:!
+Missing character: There is no └ (U+2514) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no │ (U+2502) in font [lmmono9-regular]:!
+Missing character: There is no └ (U+2514) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no └ (U+2514) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ├ (U+251C) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no └ (U+2514) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+Missing character: There is no ─ (U+2500) in font [lmmono9-regular]:!
+
+
+[13] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+
+[14]
+
+[15] (./report_yangjianheng.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2022/08/05>
+ ***********
+Package rerunfilecheck Info: File `report_yangjianheng.out' has not changed.
+(rerunfilecheck)             Checksum: E02DE8F9AC5059737AB7774229AEB17C;4884.
+ ) 
+Here is how much of TeX's memory you used:
+ 29846 strings out of 473832
+ 625156 string characters out of 5729480
+ 1493129 words of memory out of 5000000
+ 52396 multiletter control sequences out of 15000+600000
+ 568627 words of font info for 107 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 93i,12n,114p,556b,1926s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on report_yangjianheng.xdv (15 pages, 371680 bytes).
