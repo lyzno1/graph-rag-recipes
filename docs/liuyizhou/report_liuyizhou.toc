@@ -1,0 +1,34 @@
+\contentsline {section}{\numberline {1}引言}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}项目背景与动机}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}本人负责模块概述}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}主要贡献}{3}{subsection.1.3}%
+\contentsline {section}{\numberline {2}相关工作}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}检索增强生成（RAG）}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}图神经网络与知识图谱}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}菜谱推荐系统}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}模型架构与数学推导}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}系统总体架构}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}配置管理数学模型}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}推荐管线状态转换}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}多路径检索决策}{5}{subsection.3.4}%
+\contentsline {section}{\numberline {4}实现细节}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}配置管理模块 (config.py)}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}核心管线实现 (pipeline.py)}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}数据模型设计 (data\_models.py)}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}CLI 展示模块 (ui\_components.py)}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}多层回退机制}{8}{subsection.4.5}%
+\contentsline {section}{\numberline {5}实验设置}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}数据集}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}运行环境}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}评估指标}{9}{subsection.5.3}%
+\contentsline {section}{\numberline {6}结果与分析}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}功能测试结果}{9}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}CLI 输出示例}{9}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}性能分析}{10}{subsection.6.3}%
+\contentsline {section}{\numberline {7}可复现性与代码结构}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}GitHub 仓库}{10}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}运行命令}{10}{subsection.7.2}%
+\contentsline {section}{\numberline {8}总结与未来工作}{10}{section.8}%
+\contentsline {subsection}{\numberline {8.1}工作总结}{10}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}学习收获}{11}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}未来改进方向}{11}{subsection.8.3}%
