@@ -1,0 +1,67 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{3}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}项目背景}{3}{subsection.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}本人负责模块}{3}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}主要贡献}{3}{subsection.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}大语言模型与推荐系统}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Prompt Engineering}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Sentence Embeddings}{4}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}模型架构与数学推导}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}语义向量索引架构}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}相似度计算}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Top-K 检索}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Prompt 模板设计}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}LLM 生成概率模型}{5}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}实现细节}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}LLM 生成器模块 (llm\_generator.py)}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}类结构设计}{5}{subsubsection.4.1.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces LLMGenerator 类定义}}{5}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Prompt 模板实现}{5}{subsubsection.4.1.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces build\_prompt 方法实现}}{5}{lstlisting.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}生成与回退策略}{6}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces generate 方法实现}}{6}{lstlisting.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}语义向量索引模块 (embeddings.py)}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}索引构建}{7}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}{\ignorespaces RecipeEmbeddingIndex 索引构建}}{7}{lstlisting.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}向量检索}{7}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}{\ignorespaces query 方法实现}}{7}{lstlisting.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}菜谱相似度检索}{8}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}{\ignorespaces find\_similar\_to\_recipe 方法}}{8}{lstlisting.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}模型加载与异常处理}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}{\ignorespaces 模型懒加载与异常处理}}{9}{lstlisting.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}实验设置}{9}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}模型配置}{9}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 语义向量模型配置}}{9}{table.caption.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces LLM 配置}}{10}{table.caption.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}评估方法}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}语义检索评估}{10}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}LLM 生成评估}{10}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}结果与分析}{10}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}语义检索结果}{10}{subsection.6.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 语义检索测试用例}}{10}{table.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}LLM 生成示例}{10}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}回退策略效果}{11}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}性能指标}{11}{subsection.6.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 性能测试结果}}{11}{table.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}可复现性与代码结构}{11}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}相关文件}{11}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}环境配置}{11}{subsection.7.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}{\ignorespaces LLM 相关环境配置}}{11}{lstlisting.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}测试命令}{12}{subsection.7.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}{\ignorespaces 测试语义检索和 LLM 生成}}{12}{lstlisting.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}总结与未来工作}{12}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}工作总结}{12}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}学习收获}{12}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}未来改进方向}{12}{subsection.8.3}\protected@file@percent }
+\bibstyle{plain}
+\bibcite{sentence-bert}{1}
+\bibcite{openai-api}{2}
+\bibcite{prompt-engineering}{3}
+\bibcite{rag2020}{4}
+\bibcite{minilm}{5}
+\bibcite{numpy}{6}
+\gdef \@abspage@last{13}
