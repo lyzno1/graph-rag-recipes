@@ -1,0 +1,14 @@
+# Fdb version 4
+["xdvipdfmx"] 0 "report_yangjianheng.xdv" "report_yangjianheng.pdf" "report_yangjianheng" 0 -1
+  "report_yangjianheng.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "report_yangjianheng.pdf"
+  (rewritten before read)
+["xelatex"] 0 "report_yangjianheng.tex" "report_yangjianheng.xdv" "report_yangjianheng" 0 -1
+  "report_yangjianheng.aux" 0 -1 0 "xelatex"
+  "report_yangjianheng.tex" 0 -1 0 ""
+  (generated)
+  "report_yangjianheng.aux"
+  "report_yangjianheng.log"
+  "report_yangjianheng.xdv"
+  (rewritten before read)
